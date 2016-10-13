@@ -77,7 +77,7 @@ router.put('/todo/:id', function(req, res, next){
 			} else 	{
 			res.json(result);
 			}
-		})
+		});
 	}
 });
 
@@ -92,8 +92,7 @@ router.delete('/todo/:id', function(req, res, next){
 			} else 	{
 			res.json(result);
 			}
-		})
-	}
+		});
 });
 
 
