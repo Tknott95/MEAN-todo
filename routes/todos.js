@@ -50,5 +50,14 @@ router.post('/todo', function(req, res, next){
 });
 
 
+//Update Todo
+router.put('/todo/:id', function(req, res, next){
+	var todo = req.body;
+	var updObj = {};
+
+
+	
+});
+
 
 module.exports = router;
