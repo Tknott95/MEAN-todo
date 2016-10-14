@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
@@ -13,6 +13,16 @@ export class TodoService{
         return this._http.get('/api/v1/todos')
             .map(res => res.json());
     }
+
+    saveTodo(todo){
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.post('/api/v1/todo', JSON.stringify(todo), {headers: headers})
+            .map(res => res.json());
+
+    }
+
+
 }
 
 
