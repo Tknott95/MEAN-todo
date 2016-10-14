@@ -35,6 +35,25 @@ var TodosComponent = (function () {
             todoText.value = '';
         });
     };
+    TodosComponent.prototype.setEditState = function (todo, state) {
+        if (state) {
+            todo.isEditMode = state;
+        }
+        else {
+            delete todo.isEditMode;
+        }
+    };
+    TodosComponent.prototype.updateStatus = function (todo) {
+        var _todo = {
+            _id: todo._id,
+            text: todo.text,
+            isCompleted: !todo.isCompleted
+        };
+        this._todoService.updateTodo(_todo)
+            .subscribe(function (data) {
+            todo.isCompleted = !todo.isCompleted;
+        });
+    };
     TodosComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

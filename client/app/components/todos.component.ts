@@ -46,5 +46,18 @@ export class TodosComponent implements OnInit {
             delete todo.isEditMode;
         }
     }
+
+    updateStatus(todo){
+        var _todo = {
+            _id: todo._id,
+            text: todo.text,
+            isCompleted: !todo.isCompleted
+        };
+
+        this._todoService.updateTodo(_todo)
+            .subscribe(data => {
+                todo.isCompleted = !todo.isCompleted;
+            });
+    }
    
 }
