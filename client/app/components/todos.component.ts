@@ -37,5 +37,14 @@ export class TodosComponent implements OnInit {
             todoText.value = '';
         })
     }
+
+
+    setEditState(todo, state){
+        if(state){
+            todo.isEditMode = state;
+        } else {
+            delete todo.isEditMode;
+        }
+    }
    
 }
